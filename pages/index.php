@@ -3,6 +3,7 @@
   $form_type = isset($_GET['formName']) ? $_GET['formName'] : 'Login';
   $firstname = isset($_SESSION['firstname'])? $_SESSION['firstname'] : null ;
   $avatar = isset($_SESSION['avatar'])? $_SESSION['avatar'] : null;
+  $username = isset($_COOKIE["username"])? $_COOKIE["username"] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +25,10 @@
     <h1><?php echo $form_type; ?> form</h1>
 
     <form action="/actions/login.php" method="post">
-      <input type="text" name="user_name" class="text-input"/>
+      <input type="text" name="user_name" class="text-input" value="<?= $username ?>"/>
       <input type="password" name="password" class="text-input"/>
       <input type="submit" value="Login">
+      <input type="checkbox" name="rememberme" value="1" />
     </form>
   </section>
 </body>
