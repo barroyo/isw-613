@@ -10,7 +10,15 @@ class User extends CI_Controller {
 
 	public function authenticate()
 	{
-    echo "here is where we get the post data and do the auth";
-		// $this->load->view('user/login');
+    // get the params
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
+    // call the authenticate function on the model
+    $this->load->model('User_model');
+    $result = $this->User_model->authenticate($username, $password);
+    $result = $result[0];
+    echo $result->username;
+    // if valid user, initiliaze session and redirect to user/dashboard
+    // if not valid, show error
 	}
 }
