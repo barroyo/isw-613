@@ -2,12 +2,13 @@
 $x=5;
 $y=10;
 
-function myTest()
-{
-global $x,$y;
-$y=$x+$y;
+function myTest() {
+  global $x,$y;
+  $y=$x+$y;
+  echo "valor de y dentro de myTest $y \n";
 }
 
 myTest();
-echo $y; // outputs 15
+echo $y;
+echo "\n"; // outputs 15
 ?>

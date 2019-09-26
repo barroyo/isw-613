@@ -4,7 +4,7 @@ $a = array('uno', 'dos', 'tres');
 
 
 $b = array(
-  "name" => 'Blaidmir',
+  "name" => 'Bladimir',
   "last_name" => 'Arroyo',
   "email" => "bladimir.ab@gmail.com",
 );

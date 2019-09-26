@@ -7,7 +7,7 @@ function authenticate() {
   console.log('username:', username, 'password', password);
   // make AJAX request
   jQuery.ajax({
-    url: "/actions/login.php",
+    url: "/actions/login-ajax.php",
     data: {
       username,
       password

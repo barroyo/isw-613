@@ -1,9 +1,9 @@
 <?php 
 
-comparison(5,5);
+comparison(4,"4");
 
 function comparison($a, $b){
-  echo (($a === $b) || ($a > 5))? "true\n":"false\n";  
+  echo (($a == $b) || ($a > 5))? "true\n":"false\n";  
 }
 
 function increment() {  
