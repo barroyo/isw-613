@@ -1,9 +1,9 @@
 <?php
 
     $dbServer = "localhost";
-    $dbUserName = "php_web";
-    $dbPassword = "php_web";
-    $dbName = "php_web";
+    $dbUserName = "root";
+    $dbPassword = "root1234";
+    $dbName = "php_web2";
     $dbPort = 3306;
 
     $connection = new mysqli($dbServer, $dbUserName, $dbPassword, $dbName, $dbPort);
@@ -15,7 +15,7 @@
         exit;
     }
 
-    $sql = "SELECT full_name, document FROM students";
+    $sql = "SELECT * FROM students";
     $resultObj = $connection->query($sql);
     if ($resultObj->num_rows > 0)
     {
