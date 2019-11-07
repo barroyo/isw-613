@@ -5,10 +5,10 @@
     $saved = saveStudent($_REQUEST);
 
     if($saved) {
-      header('Location: /crud/?status=success');
+      header('Location: /?status=success');
     } else {
-      header('Location: /crud/?status=error');
+      header('Location: /?status=error');
     }
   } else {
-    header('Location: /crud/?status=error');
+    header('Location: /?status=error');
   }

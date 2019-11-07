@@ -65,3 +65,19 @@ function getStudent($id){
   $conn->close();
   return $result->fetch_array();
 }
+
+/**
+ * Deletes an student from the database
+ */
+function deleteStudent($id){
+  $conn = getConnection();
+  $sql = "DELETE FROM students WHERE id = $id";
+  $result = $conn->query($sql);
+
+  if ($conn->connect_errno) {
+    $conn->close();
+    return false;
+  }
+  $conn->close();
+  return true;
+}

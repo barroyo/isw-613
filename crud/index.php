@@ -1,4 +1,3 @@
-
 <?php
   require('functions.php');
 
@@ -23,16 +22,16 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+  <script src="assets/js/actions.js"></script>
   <title>Document</title>
 </head>
 <body>
 <div class="container">
-    <div class="msg">
+    <div class="msg" id="msg">
       <?php echo $message; ?>
     </div>
     <h1>Create Students</h1>
-    <form action="/crud/createStudent.php" method="POST" class="form-inline" role="form">
+    <form action="/createStudent.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Full Name</label>
         <input type="text" class="form-control" id="" name="full_name" placeholder="Full Name">
@@ -56,7 +55,7 @@
           $students = getStudents();
           $studentsHtml = "";
           foreach ($students as $student) {
-            $studentsHtml .= "<tr><td>{$student['id']}</td><td>{$student['full_name']}</td><td>{$student['email']}</td><td> <a href='editStudent?id={$student['id']}'>Edit</a>| Delete</td></tr>";
+            $studentsHtml .= "<tr id='student_{$student['id']}'><td>{$student['id']}</td><td>{$student['full_name']}</td><td>{$student['email']}</td><td> <a href='editStudent?id={$student['id']}'>Edit</a>| <a href='#' class='btn btn-primary' onclick='deleteStudent({$student['id']})'>Delete</a></td></tr>";
           }
           echo $studentsHtml;
         ?>
