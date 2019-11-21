@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="msg">
     </div>
     <h1>User Login</h1>
-    <form action="" method="POST" class="form-inline" role="form">
+    <form action="/codeigniter31/user/authenticate" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
         <input type="text" class="form-control" id="" name="username" placeholder="Your username">
