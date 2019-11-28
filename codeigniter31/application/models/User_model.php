@@ -18,4 +18,28 @@ class User_model extends CI_Model {
       }
   }
 
+  /**
+   *  Validate in the database that the user exists
+   *
+   * @param $username  The username
+   * @param $password The user's password
+   */
+  public function getByName($name){
+      $query = $this->db->get_where('users', array('name' => $name));
+      if ($query->result()) {
+        return $query->result();
+      } else {
+        return false;
+      }
+  }
+
+  /**
+   *  Get all users from the databas
+   *
+   */
+  public function all(){
+      $query = $this->db->get('users');
+      return $query->result();
+  }
+
 }

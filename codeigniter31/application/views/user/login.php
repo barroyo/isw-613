@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="container">
     <div class="msg">
+    <?php echo $this->session->flashdata('error');?>
     </div>
     <h1>User Login</h1>
     <form action="/codeigniter31/user/authenticate" method="POST" class="form-inline" role="form">

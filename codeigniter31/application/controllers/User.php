@@ -23,11 +23,56 @@ class User extends CI_Controller {
     // params
     // load data
 		$this->load->view('user/login');
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+    $this->session->set_flashdata('error', 'Inicie sesión nuevamente');
+		redirect(site_url(['user','login']));
+	}
+
+	public function dashboard()
+	{
+		if($this->session->has_userdata('user')){
+			$this->load->view('user/dashboard');
+		} else {
+			$this->session->set_flashdata('error', 'No ha iniciado sesión');
+			redirect(site_url(['user','login']));
+		}
   }
 
 	public function register()
 	{
 		$this->load->view('user/register');
+	}
+
+	public function save()
+	{
+		$validation_errors = [];
+
+		if(!$this->input-post('name')){
+			$validation_errors['name'] = 'is blank';
+		}
+		if(!$this->input-post('username')){
+			$validation_errors['username'] = 'is blank';
+		}
+
+		if(sizeof($validation_errors) > 0) {
+			$this->session->set_flashdata('validation_errors', $validation_errors);
+			redirect(site_url(['user','register']));
+		}
+	}
+
+	public function search($name = ''){
+		$data['users'] = $this->user_model->getByName($name);
+		$this->load->view('user/list', $data);
+	}
+
+	public function list()
+	{
+		$data['users'] = $this->user_model->all();
+		$this->load->view('user/list', $data);
 	}
 
 	/**
@@ -43,9 +88,11 @@ class User extends CI_Controller {
 		$authUser = $this->user_model->authenticate($user, $pass);
 		// return error or redirect to landing page
 		if ($authUser) {
-			echo "Welcome {$authUser->name}";
+			$this->session->set_userdata('user', $authUser);
+			redirect(site_url(['user','dashboard']));
 		} else {
-			echo "redirect a login";
+			$this->session->set_flashdata('error', 'Invalid user name or password');
+			redirect(site_url(['user','login']));
 		}
 	}
 }
