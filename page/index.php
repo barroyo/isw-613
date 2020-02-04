@@ -30,7 +30,7 @@
       <?php echo $message; ?>
     </div>
     <h1>Form Registration</h1>
-    <form action="/page/signup.php" method="GET" class="form-inline" role="form">
+    <form action="signup.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
         <input type="text" class="form-control" id="" name="username" placeholder="Your username">
@@ -44,7 +44,7 @@
         <input type="text" class="form-control" id="" name="lastname" placeholder="Your LastName">
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" class="btn btn-primary" value="Submit"></input>
     </form>
 </div>
 

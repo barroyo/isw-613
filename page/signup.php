@@ -1,5 +1,5 @@
 <?php
-  if($_GET) {
+  if($_POST) {
     $name = $_REQUEST['name'];
     $lastname = $_REQUEST['lastname'];
     $username = $_REQUEST['username'];
@@ -9,9 +9,9 @@
     $connection = mysqli_connect('localhost:3306', 'root', 'root1234', 'php_web2');
     mysqli_query($connection, $sql);
     mysqli_close($connection);
-    // header('Location: /page/?status=success');
+    header('Location: /index.php?status=success');
   } else {
-    // header('Location: /page/?status=error');
+    header('Location: /index.php?status=error');
   }
 
 
