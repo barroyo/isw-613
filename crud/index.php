@@ -31,10 +31,10 @@
       <?php echo $message; ?>
     </div>
     <h1>Create Students</h1>
-    <form action="/createStudent.php" method="POST" class="form-inline" role="form">
+    <form action="/crud/createStudent.php" onsubmit="return validateStudentForm();" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Full Name</label>
-        <input type="text" class="form-control" id="" name="full_name" placeholder="Full Name">
+        <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name">
       </div>
       <div class="form-group">
         <label class="sr-only" for="">Email</label>

@@ -14,3 +14,14 @@ function deleteStudent(id) {
   xhttp.open("GET", "/deleteStudentAjax.php?id=" + id, true);
   xhttp.send();
 }
+
+
+function validateStudentForm() {
+  debugger;
+  if (document.getElementById('full_name').value != '') {
+    return true;
+  } else {
+    alert('Invalid user form ');
+    return false;
+  }
+}

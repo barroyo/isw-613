@@ -2,13 +2,13 @@
   include('functions.php');
 
   if(isset($_POST['full_name']) && isset($_POST['email']) ) {
-    $saved = saveStudent($_REQUEST);
+    $saved = saveStudent($_POST);
 
     if($saved) {
-      header('Location: /?status=success');
+      header('Location: /crud/?status=success');
     } else {
-      header('Location: /?status=error');
+      header('Location: /crud/?status=error');
     }
   } else {
-    header('Location: /?status=error');
+    header('Location: /crud/?status=error');
   }

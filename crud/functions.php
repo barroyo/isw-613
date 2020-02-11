@@ -30,6 +30,26 @@ function saveStudent($student) {
   return true;
 }
 
+/**
+ * Updates an existing student to the database
+ *
+ * @student An associative array with the student information
+ */
+function updateStudent($student) {
+  $conn = getConnection();
+  $sql = "UPDATE students set `full_name` = '{$student['full_name']}' , `email` = '{$student['email']}',
+    `profilePic` = '{$student['profilePic']}' WHERE `id` = {$student['id']}";
+
+  $conn->query($sql);
+
+  if ($conn->connect_errno) {
+    $conn->close();
+    return false;
+  }
+  $conn->close();
+  return true;
+}
+
 
 /**
  * Get all students from the database
@@ -80,4 +100,22 @@ function deleteStudent($id){
   }
   $conn->close();
   return true;
+}
+
+/**
+ * Uploads an image to the server
+ *
+ * @inputName name of the input that holds the image in the request
+ */
+function uploadPicture($inputName){
+  $fileObject = $_FILES[$inputName];
+
+  $target_dir = "uploads/";
+  $target_file = $target_dir . basename($fileObject["name"]);
+  $uploadOk = 0;
+  if (move_uploaded_file($fileObject["tmp_name"], $target_file)) {
+    return $target_file;
+  } else {
+    return false;
+  }
 }
