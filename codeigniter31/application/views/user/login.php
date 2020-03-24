@@ -1,25 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-  <title>Document</title>
-</head>
-<body>
 <div class="container">
     <div class="msg">
     <?php echo $this->session->flashdata('error');?>
     </div>
     <h1>User Login</h1>
-    <form action="/codeigniter31/user/authenticate" method="POST" class="form-inline" role="form">
+    <form action="<?php echo site_url(['user','authenticate']) ?>" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
         <input type="text" class="form-control" id="" name="username" placeholder="Your username">
@@ -32,6 +20,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>
-
-</body>
-</html>

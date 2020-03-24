@@ -21,8 +21,11 @@ class User extends CI_Controller {
 	public function login()
 	{
     // params
-    // load data
+		// load data
+		$this->load->view('common/head');
 		$this->load->view('user/login');
+		$this->load->view('common/footer');
+
 	}
 
 	public function logout()
@@ -32,10 +35,16 @@ class User extends CI_Controller {
 		redirect(site_url(['user','login']));
 	}
 
+	/**
+	 * Loads the user's dashboard
+	 */
 	public function dashboard()
 	{
 		if($this->session->has_userdata('user')){
+			$this->load->view('common/head');
+			$this->load->view('common/navbar');
 			$this->load->view('user/dashboard');
+			$this->load->view('common/footer');
 		} else {
 			$this->session->set_flashdata('error', 'No ha iniciado sesión');
 			redirect(site_url(['user','login']));
@@ -72,6 +81,7 @@ class User extends CI_Controller {
 	public function list()
 	{
 		$data['users'] = $this->user_model->all();
+		$data['usersQty'] = sizeof($data['users']);
 		$this->load->view('user/list', $data);
 	}
 
@@ -91,7 +101,7 @@ class User extends CI_Controller {
 			$this->session->set_userdata('user', $authUser);
 			redirect(site_url(['user','dashboard']));
 		} else {
-			$this->session->set_flashdata('error', 'Invalid user name or password');
+			$this->session->set_flashdata('error', 'Invalid username or password');
 			redirect(site_url(['user','login']));
 		}
 	}
