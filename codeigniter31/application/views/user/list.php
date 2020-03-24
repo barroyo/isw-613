@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <tbody>
         <tr><th>Name</th><th>Username</th></tr>
     <?php foreach ($users as $user) {
-        echo "<tr><td>{$user->name}</td><td>{$user->username}</td></tr>";
+        echo "<tr><td><a href=\"/user/view/{$user->id}\">{$user->name}</a></td><td>{$user->username}</td></tr>";
     }?>
 
       </tbody>

@@ -34,6 +34,20 @@ class User_model extends CI_Model {
   }
 
   /**
+   *  Get user by Id
+   *
+   * @param $id  The user's id
+   */
+  public function getById($id){
+      $query = $this->db->get_where('users', array('id' => $id));
+      if ($query->result()) {
+        return $query->result();
+      } else {
+        return false;
+      }
+  }
+
+  /**
    *  Get all users from the databas
    *
    */

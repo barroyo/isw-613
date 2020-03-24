@@ -73,8 +73,14 @@ class User extends CI_Controller {
 		}
 	}
 
+	public function view($id){
+		$data['user'] = $this->user_model->getById($id)[0];
+		$this->load->view('user/view', $data);
+	}
+
 	public function search($name = ''){
 		$data['users'] = $this->user_model->getByName($name);
+		$data['usersQty'] = sizeof($data['users']);
 		$this->load->view('user/list', $data);
 	}
 
