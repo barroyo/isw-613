@@ -2,14 +2,15 @@
 <?php
   $message = "";
   if(!empty($_REQUEST['status'])) {
-    switch($_REQUEST['status']) {
-      case 'success':
-        $message = 'User was added succesfully';
-      break;
-      case 'error':
-        $message = 'There was a problem inserting the user';
-      break;
-    }
+    $message = $_REQUEST['message'];
+    // switch($_REQUEST['status']) {
+    //   case 'success':
+    //     $message = 'User was added succesfully';
+    //   break;
+    //   case 'error':
+    //     $message = 'There was a problem inserting the user';
+    //   break;
+    // }
   }
 ?>
 <!DOCTYPE html>
@@ -26,6 +27,7 @@
 </head>
 <body>
 <div class="container">
+  <?php require ('header.php') ?>
     <div class="msg">
       <?php echo $message; ?>
     </div>
@@ -33,15 +35,15 @@
     <form action="signup.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
-        <input type="text" class="form-control" id="" name="username" placeholder="Your username">
+        <input type="text" class="form-control" name="username" placeholder="Your username">
       </div>
       <div class="form-group">
         <label class="sr-only" for="">Name</label>
-        <input type="text" class="form-control" id="" name="name" placeholder="Your Name">
+        <input type="text" class="form-control" name="name" placeholder="Your Name">
       </div>
       <div class="form-group">
         <label class="sr-only" for="">LastName</label>
-        <input type="text" class="form-control" id="" name="lastname" placeholder="Your LastName">
+        <input type="text" class="form-control" name="lastname" placeholder="Your LastName">
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit"></input>

@@ -19,18 +19,20 @@
 </head>
 <body>
 <div class="container">
+  <?php require ('header.php') ?>
   <h1>List of Users</h1>
     <table class="table table-light">
       <tr>
         <th>Name</th>
         <th>Lastname</th>
+        <th>Username</th>
         <th>Actions</th>
       </tr>
       <tbody>
         <?php
           // loop users
             foreach($users as $user) {
-              echo "<tr><td>".$user[0]."</td><td>".$user[1]."</td><td><a href=\"edit.php?id=".$user[-1]."\">Edit</a> | Delete</td></tr>";
+              echo "<tr><td>".$user[0]."</td><td>".$user[1]."</td><td>".$user[2]."</td><td><a href=\"edit.php?id=".$user[-1]."\">Edit</a> | Delete</td></tr>";
             }
         ?>
       </tbody>
