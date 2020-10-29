@@ -31,9 +31,9 @@
       <tbody>
         <?php
           // loop users
-            foreach($users as $user) {
-              echo "<tr><td>".$user[0]."</td><td>".$user[1]."</td><td>".$user[2]."</td><td><a href=\"edit.php?id=".$user[-1]."\">Edit</a> | Delete</td></tr>";
-            }
+          foreach($users as $user) {
+            echo "<tr><td>".$user[0]."</td><td>".$user[1]."</td><td>".$user[2]."</td><td><a href=\"edit.php?id=".$user[4]."\">Edit</a> | Delete</td></tr>";
+          }
         ?>
       </tbody>
     </table>

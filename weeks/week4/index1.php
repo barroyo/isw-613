@@ -1,10 +1,19 @@
-
 <?php
+
   $message = "";
   if(!empty($_REQUEST['status'])) {
     $message = $_REQUEST['message'];
+    // switch($_REQUEST['status']) {
+    //   case 'success':
+    //     $message = 'User was added succesfully';
+    //   break;
+    //   case 'error':
+    //     $message = 'There was a problem inserting the user';
+    //   break;
+    // }
   }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +28,28 @@
 </head>
 <body>
 <div class="container">
-    <?php require ('header.php') ?>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand">UTN ISW613</a>
+      <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Create</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="list.php" tabindex="-1" aria-disabled="true">List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="msg">
-      <?php echo $message; ?>
+     <?php echo $message; ?>
     </div>
     <h1>Form Registration</h1>
-    <form action="signup.php" method="POST" class="form-inline" role="form">
+    <form action="/signup.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
         <input type="text" class="form-control" name="username" placeholder="Your username">
@@ -37,7 +62,6 @@
         <label class="sr-only" for="">LastName</label>
         <input type="text" class="form-control" name="lastname" placeholder="Your LastName">
       </div>
-
       <input type="submit" class="btn btn-primary" value="Submit"></input>
     </form>
 </div>

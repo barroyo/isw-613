@@ -1,9 +1,8 @@
 
 <?php
-  $message = "";
-  if(!empty($_REQUEST['status'])) {
-    $message = $_REQUEST['message'];
-  }
+  // read the id from the querystring
+  // select from the users table the user with that id
+  // show the date of that user in the form
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +26,7 @@
     <form action="signup.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
-        <input type="text" class="form-control" name="username" placeholder="Your username">
+        <input type="text" class="form-control" name="username" placeholder="Your username" value="<?php echo $name?> >
       </div>
       <div class="form-group">
         <label class="sr-only" for="">Name</label>

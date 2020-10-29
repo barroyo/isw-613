@@ -1,9 +1,9 @@
 <?php
-  session_start();
-  if ($_SESSION && $_SESSION['user']){
-    //user already logged in
-    header('Location: /dashboard.php');
-  }
+  // session_start();
+  // if ($_SESSION && $_SESSION['user']){
+  //   //user already logged in
+  //   header('Location: /dashboard.php');
+  // }
 
   $message = "";
   if(!empty($_REQUEST['status'])) {

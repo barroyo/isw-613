@@ -1,3 +1,13 @@
+<?php
+
+
+$x = 10;
+echo --$x;
+echo '<br/>';
+echo $x;
+die;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +16,6 @@
   <title>Document</title>
 </head>
 <body>
-<h1><?php echo "Hello World"; ?></h1>
+<h1><?php echo $x; ?></h1>
 </body>
 </html>

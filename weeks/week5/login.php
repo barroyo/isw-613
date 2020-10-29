@@ -12,6 +12,7 @@
       session_start();
       $_SESSION['user'] = $user;
 
+
       header('Location: /dashboard.php');
     } else {
       header('Location: /index.php?status=login');
