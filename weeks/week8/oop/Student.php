@@ -29,9 +29,11 @@ class Student extends Person {
 // echo $p->name;
 // echo $p->getCarnet();
 
-// echo "second: accesing protected \n";
-// $p = new Person('Bladimir', 'Arroyo', 25);
-// echo $p->savings; //error
+
+// echo "Accesing protected \n";
+// $p = new Student('Bladimir', 'Arroyo', 25, '200013274');
+// echo $p->toString(); //works
+
 
 
 // echo "second - accessing protected:\n";
@@ -42,9 +44,9 @@ class Student extends Person {
 // $p = new Student('Bladimir', 'Arroyo', 25, '200013274');
 // echo $p->internalId; //error
 
-echo "fourth: accesing static from instance\n";
-$p = new Person('Bladimir', 'Arroyo', 25);
-echo $p::$id; //error
+// echo "fourth: accesing static from instance\n";
+// $p = new Person('Bladimir', 'Arroyo', 25);
+// echo $p::$id; //error
 // echo "fifth: accessing static from Class \n";
 // echo Person::$id;
 
