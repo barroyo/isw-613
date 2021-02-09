@@ -6,33 +6,52 @@
   <title>Sign up</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
 
 <?php
-  $firstName = $_REQUEST['first-name'];
-  $lastName = $_REQUEST['last-name'];
-  $email = $_REQUEST['email'];
+  include('functions.php');
+
+  $provinces = getProvinces();
+
 
 ?>
-
-
-<h1>User Signup</h1>
+<body>
   <div class="container-fluid">
-    <form method="post" action="">
-        <div class="form-group">
-          <label for="first-name">First Name</label>
-          <input id="first-name" class="form-control" type="text" name="first-name">
-        </div>
-        <div class="form-group">
-          <label for="last-name">Last Name</label>
-          <input id="last-name" class="form-control" type="text" name="last-name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input id="email" class="form-control" type="email" name="email">
-        </div>
-        <button class="btn btn-primary" type="submit">Sign up</button>
+    <div class="jumbotron">
+      <h1 class="display-4">Signup</h1>
+      <p class="lead">This is the signup process</p>
+      <hr class="my-4">
+    </div>
+    <form method="post" action="save.php">
+      <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input id="first-name" class="form-control" type="text" name="firstName">
+      </div>
+      <div class="form-group">
+        <label for="last-name">Last Name</label>
+        <input id="last-name" class="form-control" type="text" name="lastName">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" class="form-control" type="text" name="email">
+      </div>
+      <div class="form-group">
+        <label for="province">Provincia</label>
+        <select id="province" class="form-control" name="province">
+          <?php
+          foreach($provinces as $id => $province) {
+            echo "<option value=\"$id\">$province</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" class="form-control" type="password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary"> Sign up </button>
+      <!-- <input type="submit" class="btn btn-primary" value="Sign up"></input> -->
     </form>
   </div>
+
 </body>
 </html>
