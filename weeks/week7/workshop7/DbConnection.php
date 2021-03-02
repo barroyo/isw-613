@@ -14,7 +14,7 @@ class DbConnection {
     $this->user = $user;
     $this->password = $password;
     $this->databaseName = $databaseName;
-    $this->activeConnection = null;
+    $this->activeConnection = new mysqli($this->host, $this->user, $this->password, $this->databaseName);
   }
 
   /**

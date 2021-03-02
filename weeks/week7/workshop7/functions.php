@@ -1,11 +1,12 @@
 <?php
+require_once('StudentDao.php');
 require_once('Students.php');
 
 $limit = $argv[1];
 
-$students = Students::getStudents($limit);
+$students = StudentDao::getAll($limit);
 
 foreach ($students as $student) {
-  $newStudent = new Students($students['fullName'], $student['cedula'], $students['age'], $students['id']);
+  $newStudent = new Students($student['fullName'], $student['cedula'], $student['age'], $student['id']);
   echo $newStudent->toCsv().PHP_EOL;
 }
