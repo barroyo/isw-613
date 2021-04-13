@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
-
+	Prueba
 	<div id="body">
 
 		<form class="form-inline" action="/user/authenticate" method="post">
