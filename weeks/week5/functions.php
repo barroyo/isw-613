@@ -12,6 +12,18 @@ function getConnection() {
   return $connection;
 }
 
+
+function sendScheduleEmail($recipient, $subject) {
+
+  $output = '';
+  $retval = '';
+  exec("/home/ubuntu/user/example2.php $recipient $subject", $output, $retval);
+
+
+  var_dump($output);
+
+}
+
 /**
  * Inserts a new student to the database
  *

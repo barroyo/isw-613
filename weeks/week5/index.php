@@ -1,9 +1,9 @@
 <?php
-  // session_start();
-  // if ($_SESSION && $_SESSION['user']){
-  //   //user already logged in
-  //   header('Location: /dashboard.php');
-  // }
+  session_start();
+  if ($_SESSION && $_SESSION['user']){
+    //user already logged in
+    header('Location: dashboard.php');
+  }
 
   $message = "";
   if(!empty($_REQUEST['status'])) {
@@ -35,7 +35,7 @@
       <?php echo $message; ?>
     </div>
     <h1>User Login</h1>
-    <form action="/login.php" method="POST" class="form-inline" role="form">
+    <form action="login.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
         <input type="text" class="form-control" id="" name="username" placeholder="Your username">

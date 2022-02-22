@@ -11,11 +11,11 @@
     if($user) {
       session_start();
       $_SESSION['user'] = $user;
+      //sendScheduleEmail($user['email-address'], "Bievenido");
 
-
-      header('Location: /dashboard.php');
+      header('Location: dashboard.php');
     } else {
-      header('Location: /index.php?status=login');
+      header('Location: index.php?status=login');
     }
   }
 

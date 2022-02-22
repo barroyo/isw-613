@@ -3,12 +3,12 @@
 
   $user = $_SESSION['user'];
   if (!$user) {
-    header('Location: /index.php');
+    header('Location: index.php');
   }
   ?>
 
   <h1> Bienvenido <?php echo $user['name']; echo $user['lastname'] ?> </h1>
-  <a href="/logout.php">Logout</a>
+  <a href="logout.php">Logout</a>
 
   <nav class="nav">
     <?php  if($user['role'] === 'Administrador') { ?>
