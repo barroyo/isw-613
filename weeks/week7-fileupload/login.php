@@ -1,7 +1,6 @@
 <?php
   require('functions.php');
 
-
   if($_POST) {
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
@@ -18,7 +17,3 @@
       header('Location: /index.php?status=login');
     }
   }
-
-
-
-

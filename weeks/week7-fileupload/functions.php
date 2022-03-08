@@ -52,6 +52,26 @@ function saveUser($user, $imagepath) {
   return true;
 }
 
+/**
+ * Inserts a new file to the database
+ *
+ * @user An associative array with the student information
+ */
+function saveFile($filePath) {
+  $conn = getConnection();
+  $sql = "INSERT INTO files( `filepath`) VALUES ('$filePath')";
+
+  $conn->query($sql);
+
+
+  if ($conn->connect_errno) {
+    $conn->close();
+    return false;
+  }
+  $conn->close();
+  return true;
+}
+
 
 /**
  * Get all students from the database
@@ -60,6 +80,22 @@ function saveUser($user, $imagepath) {
 function getStudents(){
   $conn = getConnection();
   $sql = "SELECT * FROM students";
+  $result = $conn->query($sql);
+
+  if ($conn->connect_errno) {
+    $conn->close();
+    return [];
+  }
+  $conn->close();
+  return $result;
+}
+
+/**
+ * Get all files
+ */
+function getFiles(){
+  $conn = getConnection();
+  $sql = "SELECT * FROM files";
   $result = $conn->query($sql);
 
   if ($conn->connect_errno) {
