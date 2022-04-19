@@ -15,9 +15,7 @@
 				<button onclick="toggleMenu();">&#9776;</button>
 			</li>
 			<li class="menu-item hidden"><a href="#">Home</a></li>
-			<li class="menu-item hidden"><a href="/news" target="_blank">News</a>
-			</li>
-			<li class="menu-item hidden"><a href="/" target="_blank">News Sources</a></li>
+			<li class="menu-item hidden"><a href="/newssource">News Sources</a></li>
 			<li class="menu-item hidden"><a href="/" target="_blank">Categories</a>
 			</li>
 		</ul>
