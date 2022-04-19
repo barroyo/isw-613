@@ -51,9 +51,10 @@ class BaseController extends Controller
     }
 
     public function renderTemplate($view, $parameters) {
+        $parameters['user'] = $_SESSION['user_type'];
         echo view('shared/head', $parameters);
-        echo view('shared/menu');
+        echo view('shared/menu', $parameters);
         echo $view;
-        echo view('shared/footer');
+        echo view('shared/footer', $parameters);
     }
 }

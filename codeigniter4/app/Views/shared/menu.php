@@ -23,7 +23,7 @@
 
 	<div class="heroe">
 
-		<h1>Welcome to  My News Cover</h1>
+		<h1>Welcome to  My News Cover <?= $user; ?></h1>
 
 		<h2>All your news in one single place</h2>
 

@@ -40,4 +40,9 @@ class NewsSource extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
+    function findByCategory($id) {
+
+    }
+
 }

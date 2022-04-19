@@ -29,10 +29,12 @@ $routes->setAutoRoute(false);
  * --------------------------------------------------------------------
  */
 
+ //newssource/edit/2/loquesea122/lasjalsjaklsj
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/newssource', 'NewsSource');
 $routes->get('/newssource/create', 'NewsSource::new');
+$routes->get('/newssource/edit/(:num)', 'NewsSource::edit/$1');
 $routes->post('/newssource/save', 'NewsSource::save');
 $routes->get('/register', 'User::register');
 $routes->get('/', 'User::login');

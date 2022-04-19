@@ -2,7 +2,7 @@
 	<div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>News List</h1>
+        <h1>News Sources</h1>
       </div>
     </div>
     <div class="row">
@@ -27,8 +27,8 @@
                   <td><?php echo $source['title'] ?></td>
                   <td><?php echo $source['url'] ?></td>
                   <td>
-                    <a class="btn btn-secondary" href="<?php echo site_url(['user','edit',$source['id']]);?>">Edit</a>
-                    <a class="btn btn-danger" href="<?php echo site_url(['user','delete',$source['id']]);?>">Delete</a>
+                    <a class="btn btn-secondary" href="<?php echo base_url(['newssource','edit',$source['id']]);?>">Edit</a>
+                    <a class="btn btn-danger" href="<?php echo base_url(['newssource','delete',$source['id']]);?>">Delete</a>
                   </td>
                 </tr>
             <?php } ?>
