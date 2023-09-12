@@ -27,6 +27,7 @@
     <form action="/actions/login.php" method="post">
       <input type="text" name="user_name" class="text-input" value="<?= $username ?>"/>
       <input type="password" name="password" class="text-input"/>
+      <input type="fieldx" name="fieldx" class="text-input"/>
       <input type="submit" value="Login">
       <input type="checkbox" name="rememberme" value="1" />
     </form>

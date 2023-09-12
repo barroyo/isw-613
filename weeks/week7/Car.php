@@ -3,7 +3,7 @@ class Car {
 
   const WHEELS_NUMBER = 4;
   public $make;
-  public $year;
+  private $year;
   public $model;
   public $color;
 
@@ -15,14 +15,20 @@ class Car {
     $this->color = $color;
   }
 
+  // function Car($make, $year, $model, $color) {
+  //   $this->make = $make;
+  //   $this->model = $model;
+  //   $this->year = $year;
+  //   $this->color = $color;
+  // }
 
-  function Car($make, $year, $model, $color) {
-    $this->make = $make;
-    $this->model = $model;
+  function set_year($year) {
     $this->year = $year;
-    $this->color = $color;
   }
 
+  function get_year(){
+    return $this->year;
+  }
 
   function to_string() {
      return "{$this->make} - {$this->model} - {$this->year} - {$this->color} ". PHP_EOL;

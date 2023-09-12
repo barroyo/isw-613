@@ -9,9 +9,6 @@ class Student extends Person {
     $this->carnet = $carnet;
   }
 
-  public function toString() {
-     echo "{$this->carnet},{$this->savings}";
-  }
 
   public function getCarnet() {
     return $this->carnet;
@@ -31,8 +28,8 @@ class Student extends Person {
 
 
 // echo "Accesing protected \n";
-// $p = new Student('Bladimir', 'Arroyo', 25, '200013274');
-// echo $p->toString(); //works
+$p = new Student('Bladimir', 'Arroyo', 25, '200013274');
+echo $p->toString(); //works
 
 
 

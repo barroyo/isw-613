@@ -1,5 +1,5 @@
 <?php
-class Car {
+class Car extends MySqlStorage {
 
   const WHEELS_NUMBER = 4;
   public $make;
@@ -33,6 +33,10 @@ class Car {
 
   function to_string() {
      return "{$this->make} - {$this->model} - {$this->year} - {$this->color} ". PHP_EOL;
+  }
+
+  function to_sql() {
+    return "{$this->make}, {$this->model}, {$this->year} , {$this->color} ";
   }
 
   /**

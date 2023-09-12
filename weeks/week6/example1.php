@@ -1,7 +1,7 @@
 <?php
 
     echo "Script Greet.php".PHP_EOL;
-    //print_r($argv);
+    print_r($argv);
     echo "Cantidad de parámetros: $argc".PHP_EOL;
 
     foreach ($argv as $key => $value) {

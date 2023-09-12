@@ -19,6 +19,8 @@ if (($handle = fopen($file, "r")) !== FALSE) {
     }
     $sql = "INSERT INTO $table ($headersString) VALUES (`{$data[0]}`, `{$data[1]}`, `{$data[2]}`)".PHP_EOL;
 
+    // execute one insert per line
+    // or save an sql file with all the inserts
     echo $sql;
   }
   fclose($handle);

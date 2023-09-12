@@ -9,7 +9,7 @@ class DbConnection {
   private $activeConnection;
 
 
-  function __constructor($host, $user, $password, $databaseName){
+  function __construct($host, $user, $password, $databaseName){
     $this->host = $host;
     $this->user = $user;
     $this->password = $password;

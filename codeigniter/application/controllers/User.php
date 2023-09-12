@@ -8,6 +8,18 @@ class User extends CI_Controller {
 		$this->load->view('user/login');
   }
 
+  /**
+   * This is the signup screen
+   */
+	public function signup()
+	{
+		$this->load->view('user/signup');
+  }
+
+
+  /**
+   * Basic user authentication
+   */
 	public function authenticate()
 	{
     // get the params

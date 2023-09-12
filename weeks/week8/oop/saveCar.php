@@ -5,6 +5,11 @@ require 'Car.php';
 $output_file = $argv[1];
 // crear un objeto tipo Carro
 $car = new Car($argv[2], $argv[3], $argv[4], 'red');
+
+$car->set_color('Blue');
+$car->save();
+$car->update($newcar);
+$car->delete();
 // guardar en en un archivo la representación del objeto como csv
 $file_handler = fopen($output_file, 'a');
 fwrite($file_handler,$car->to_csv());

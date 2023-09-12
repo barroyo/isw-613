@@ -17,6 +17,11 @@ if ($username === 'barroyo' && $password === '122') {
   $_SESSION['firstname'] = 'Bladimir';
   $_SESSION['user_id'] = 1;
   $_SESSION['avatar'] = 'https://sguru.org/wp-content/uploads/2017/06/cool-anonymous-profile-pictures-1699946_orig.jpg';
+  echo json_encode($_SESSION);
+} else {
+  echo json_encode(['error'=> 'invalid user information']);
 }
-header('Location: /index.php');
+// header('Location: /index.php');
+
+
 ?>

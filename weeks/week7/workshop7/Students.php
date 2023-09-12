@@ -7,7 +7,7 @@ class Student {
   public $cedula;
   public $age;
 
-  function __constructor($fullName, $cedula, $age, $id = 0 ){
+  function __construct($fullName, $cedula, $age, $id = 0 ){
     $this->fullName = $fullName;
     $this->cedula = $cedula;
     $this->age = $age;
@@ -20,6 +20,10 @@ class Student {
    */
   function toCsv(){
     return "{$this->fullName},{$this->cedula},{$this->age},{$this->id}";
+  }
+
+  function toHtml(){
+    return "<tr><td>{$this->fullName}</td><td> {$this->cedula}</td><td>{$this->age}</td><td>{$this->id}</td></tr>";
   }
 
 }

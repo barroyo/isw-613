@@ -39,7 +39,7 @@ class User_model extends CI_Model {
    *
    * @param $id  The user's id
    */
-  public function getById($id){
+  public function findById($id){
       $query = $this->db->get_where('users', array('id' => $id));
       if ($query->result()) {
         return $query->result();
@@ -56,5 +56,22 @@ class User_model extends CI_Model {
       $query = $this->db->get('users');
       return $query->result();
   }
+
+
+  /**
+   *  Inserts a new user in the database
+   *
+   * @param $user  An associative array with all user data
+   */
+  public function insert($user){
+    $this->db->insert('users', $user);
+
+    $userId = $this->db->insert_id();
+    if ($userId) {
+      return $userId;
+    } else {
+      return false;
+    }
+}
 
 }

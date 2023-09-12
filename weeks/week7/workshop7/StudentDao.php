@@ -8,8 +8,8 @@ class StudentDao implements IDao {
    */
   static function getAll($limit = 100) {
     $mysqlConnection = new DbConnection('127.0.0.1', 'root', 'root1234','php_web2');
-    $result = $mysqlConnection->getMySQLConnection()->query("SELECT * from students LIMIT $limit");
-    $result->fetch_assoc();
+    $students = $mysqlConnection->getMySQLConnection()->query("SELECT * from students LIMIT $limit");
+    return $students->fetch_assoc();
   }
 
   /**
