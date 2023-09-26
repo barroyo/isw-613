@@ -1,13 +1,16 @@
 <?php
-  if($_POST) {
-    $name = $_REQUEST['name'];
-    $lastname = $_REQUEST['lastname'];
-    $username = $_REQUEST['username'];
+require('utils/functions.php');
 
-    $sql = "INSERT INTO users(`username`, `name`, `lastname`) VALUES ('$username','$name', '$lastname')";
-    $connection = mysqli_connect('localhost:3306', 'root', 'root1234', 'php_web2');
-    mysqli_query($connection, $sql);
-    header('Location: /index.php?status=success&message=User was created');
-  } else {
-    header('Location: /index.php?status=error&message=There was an error');
+if($_POST && $_REQUEST['firstName']) {
+  //get each field and insert to the database
+  $user['firstName'] = $_REQUEST['firstName'];
+  $user['lastName'] = $_REQUEST['lastName'];
+  $user['email'] = $_REQUEST['email'];
+  $user['province_id'] = $_REQUEST['province'];
+  $user['password'] = $_REQUEST['password'];
+  if (saveUser($user)) {
+    header("Location: /");
   }
+  header("Location: /?error=true");
+
+}

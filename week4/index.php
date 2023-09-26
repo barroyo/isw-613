@@ -1,47 +1,57 @@
-
 <?php
-  $message = "";
-  if(!empty($_REQUEST['status'])) {
-    $message = $_REQUEST['message'];
-  }
+  include('utils/functions.php');
+  $provinces = getProvinces();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-  <title>Document</title>
+  <title>Sign up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <?php require ('header.php') ?>
-    <div class="msg">
-      <?php echo $message; ?>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1 class="display-4">Signup</h1>
+      <p class="lead">This is the signup process</p>
+      <hr class="my-4">
     </div>
-    <h1>Form Registration</h1>
-    <form action="signup.php" method="POST" class="form-inline" role="form">
+    <form method="post" action="signup.php">
       <div class="form-group">
-        <label class="sr-only" for="">Username</label>
-        <input type="text" class="form-control" name="username" placeholder="Your username">
+        <label for="first-name">First Name</label>
+        <input id="first-name" class="form-control" type="text" name="firstName">
       </div>
       <div class="form-group">
-        <label class="sr-only" for="">Name</label>
-        <input type="text" class="form-control" name="name" placeholder="Your Name">
+        <label for="last-name">Last Name</label>
+        <input id="last-name" class="form-control" type="text" name="lastName">
       </div>
       <div class="form-group">
-        <label class="sr-only" for="">LastName</label>
-        <input type="text" class="form-control" name="lastname" placeholder="Your LastName">
+        <label for="email">Email Address</label>
+        <input id="email" class="form-control" type="text" name="email">
       </div>
-
-      <input type="submit" class="btn btn-primary" value="Submit"></input>
+      <div class="form-group">
+        <label for="province">Provincia</label>
+        <select id="province" class="form-control" name="province">
+          <?php
+          foreach($provinces as $id => $province) {
+            echo "<option value=\"$id\">$province</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" class="form-control" type="password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary"> Sign up </button>
+      <!-- <input type="submit" class="btn btn-primary" value="Sign up"></input> -->
     </form>
-</div>
+  </div>
 
 </body>
-</html>
 
+</html>
