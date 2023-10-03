@@ -1,6 +1,14 @@
 <?php
 
 /**
+ *  Gets the provinces from the database
+ */
+function getProvinces() {
+  //select * from provinces
+  return [1 => 'Alajuela', 2 => 'San Jose', 3 => 'Cartago', 80 => 'Heredia', 90 => 'Limon', 100 => 'Puntarenas', 200 => 'Guanacaste'];
+}
+
+/**
  *  Gets a new mysql connection
  */
 function getConnection() {
@@ -75,8 +83,9 @@ function authenticate($username, $password){
     $conn->close();
     return false;
   }
+  $results = $result->fetch_array();
   $conn->close();
-  return $result->fetch_array();
+  return $results;
 }
 
 /**

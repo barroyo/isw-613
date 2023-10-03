@@ -11,6 +11,7 @@
     if($user) {
       session_start();
       $_SESSION['user'] = $user;
+
       //sendScheduleEmail($user['email-address'], "Bievenido");
 
       header('Location: dashboard.php');

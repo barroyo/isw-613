@@ -1,21 +1,21 @@
 <?php
-  session_start();
-  if ($_SESSION && $_SESSION['user']){
-    //user already logged in
-    header('Location: dashboard.php');
-  }
-
   $message = "";
-  if(!empty($_REQUEST['status'])) {
-    switch($_REQUEST['status']) {
-      case 'login':
-        $message = 'User does not exists';
-      break;
-      case 'error':
-        $message = 'There was a problem inserting the user';
-      break;
-    }
-  }
+  // session_start();
+  // if ($_SESSION && $_SESSION['user']){
+  //   //user already logged in
+  //   header('Location: dashboard.php');
+  // }
+
+  // if(!empty($_REQUEST['status'])) {
+  //   switch($_REQUEST['status']) {
+  //     case 'login':
+  //       $message = 'User does not exists';
+  //     break;
+  //     case 'error':
+  //       $message = 'There was a problem inserting the user';
+  //     break;
+  //   }
+  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,10 +45,10 @@
         <input type="password" class="form-control" id="" name="password" placeholder="Your password">
       </div>
 
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-</div>
+      <!-- <button type="submit" class="btn btn-primary">Login</button> -->
+      <input type="submit" class="btn btn-primary" value="Login"></input>
 
+      <a class="btn">Clear</a>
 </body>
 </html>
 
