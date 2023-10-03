@@ -1,5 +1,5 @@
 <?php
-  require('functions.php');
+  require('utils/functions.php');
 
 
   if($_POST) {
