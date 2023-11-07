@@ -9,9 +9,9 @@ class Student extends Person {
     $this->carnet = $carnet;
   }
 
-  // public function toString() {
-  //    echo $this->carnet;
-  // }
+  public function toString() {
+     echo $this->carnet;
+  }
 }
 
 
