@@ -55,4 +55,14 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+
+    public function renderTemplate($view, $parameters = []) {
+        $session = session();
+        $parameters['showLogo'] =  isset($parameters['showLogo'])? $parameters['showLogo'] : false;
+        $parameters['user'] = $session->get('user');
+        echo view('shared/head', $parameters);
+        echo view('shared/menu', $parameters);
+        echo $view;
+        echo view('shared/footer', $parameters);
+    }
 }

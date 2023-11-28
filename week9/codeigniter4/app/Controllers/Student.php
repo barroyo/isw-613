@@ -10,49 +10,52 @@ class Student extends BaseController
     // show students list
     public function index(){
         // $studentModel = new StudentModel();
-        $data['title'] = 'Students Page';
+        $data['pageTitle'] = 'Students Page';
         $studentModel = model(StudentModel::class);
         $data['students'] = $studentModel->findAll();
 
-        return view('students/index', $data);
+        $content = view('students/index', $data);
+        return parent::renderTemplate($content, $data);
     }
     // add student form
-    // public function create(){
-    //     return view('add_student');
-    // }
+    public function create(){
+        $data['pageTitle'] = 'Students Page';
+        $data['actionTitle'] = 'Create Student';
+        $content = view('students/form', $data);
+        return parent::renderTemplate($content, $data);
+    }
 
-    // // insert data
-    // public function store() {
-    //     $studentModel = new StudentModel();
-    //     $data = [
-    //         'name' => $this->request->getVar('name'),
-    //         'email'  => $this->request->getVar('email'),
-    //     ];
-    //     $studentModel->insert($data);
-    //     return $this->response->redirect(site_url('/students-list'));
-    // }
-    // // show single student
-    // public function singlestudent($id = null){
-    //     $studentModel = new StudentModel();
-    //     $data['student_obj'] = $studentModel->where('id', $id)->first();
-    //     return view('edit_student', $data);
-    // }
-    // // update student data
-    // public function update(){
-    //     $studentModel = new StudentModel();
-    //     $id = $this->request->getVar('id');
-    //     $data = [
-    //         'name' => $this->request->getVar('name'),
-    //         'email'  => $this->request->getVar('email'),
-    //     ];
-    //     $studentModel->update($id, $data);
-    //     return $this->response->redirect(site_url('/students-list'));
-    // }
+    public function edit($id){
+        $studentModel = model(StudentModel::class);
+        $data['student'] = $studentModel->where('id', $id)->first();
+        $data['pageTitle'] = 'Students Page';
+        $data['actionTitle'] = 'Edit Student';
+        $content = view('students/form',$data);
+        return parent::renderTemplate($content, $data);
+    }
+
+    // insert/update data
+    public function save() {
+        $studentModel = model(StudentModel::class);
+        $id = $this->request->getVar('id');
+        $data = [
+            'name' => $this->request->getVar('name'),
+            'last_name'  => $this->request->getVar('last_name'),
+            'address'  => $this->request->getVar('address'),
+        ];
+        if ($id) {
+            $studentModel->update($id, $data);
+        } else {
+            $studentModel->insert($data);
+        }
+        return $this->response->redirect(site_url('/students'));
+    }
 
     // // delete student
-    // public function delete($id = null){
-    //     $studentModel = new StudentModel();
-    //     $data['student'] = $studentModel->where('id', $id)->delete($id);
-    //     return $this->response->redirect(site_url('/students-list'));
-    // }
+    public function delete($id = null){
+        $studentModel = model(StudentModel::class);
+        $studentModel->where('id', $id)->delete();
+
+        return $this->response->redirect(site_url('/students'));
+    }
 }
