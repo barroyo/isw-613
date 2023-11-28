@@ -1,5 +1,4 @@
 <header>
-
 	<div class="menu">
 		<ul>
 			<li class="logo">
@@ -20,13 +19,8 @@
 			</li>
 		</ul>
 	</div>
-
 	<div class="heroe">
-
 		<h1>Welcome to  My University <?= $user || ''; ?></h1>
-
 		<h2>UTN Management</h2>
-
 	</div>
-
 </header>

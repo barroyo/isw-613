@@ -11,6 +11,7 @@ class Student extends BaseController
     public function index(){
         // $studentModel = new StudentModel();
         $data['pageTitle'] = 'Students Page';
+        $data['showLogo'] = true;
         $studentModel = model(StudentModel::class);
         $data['students'] = $studentModel->findAll();
 
@@ -19,7 +20,7 @@ class Student extends BaseController
     }
     // add student form
     public function create(){
-        $data['pageTitle'] = 'Students Page';
+        $data['pageTitle'] = 'New Student';
         $data['actionTitle'] = 'Create Student';
         $content = view('students/form', $data);
         return parent::renderTemplate($content, $data);
@@ -49,6 +50,7 @@ class Student extends BaseController
             $studentModel->insert($data);
         }
         return $this->response->redirect(site_url('/students'));
+
     }
 
     // // delete student
