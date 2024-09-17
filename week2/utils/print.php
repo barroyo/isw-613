@@ -1,3 +1,4 @@
 <?php
-echo("The Name is". $_REQUEST['name']);
+echo("The Name is". $_REQUEST['name']. " ". $_REQUEST['lastname'] );
+
 
