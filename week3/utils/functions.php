@@ -10,7 +10,6 @@ function getProvinces(): array {
 
 function getConnection(): bool|mysqli {
   $connection = mysqli_connect('localhost:3306', 'root', 'root1234', 'php_web2');
-  print_r(mysqli_connect_error());
   return $connection;
 }
 

@@ -1,23 +1,10 @@
 <?php
   include('utils/functions.php');
+
   $provinces = getProvinces();
-  $error_msg = '';
-  if(isset($_GET['error'])) {
-    $error_msg = $_GET['error'];
-  }
-
+  $error_msg = isset($_GET['error']) ? $_GET['error'] : '';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign up</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
+<?php require('inc/header.php')?>
   <div class="container-fluid">
     <div class="jumbotron">
       <h1 class="display-4">Signup</h1>
@@ -57,7 +44,4 @@
       <button type="submit" class="btn btn-primary"> Sign up </button>
     </form>
   </div>
-
-</body>
-
-</html>
+<?php require('inc/footer.php');

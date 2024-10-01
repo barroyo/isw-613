@@ -1,7 +1,7 @@
 <?php
 require '../utils/functions.php';
 
-if($_POST && $_REQUEST['firstName']) {
+if($_POST && isset($_REQUEST['firstName'])) {
   //get each field and insert to the database
   $user['firstName'] = $_REQUEST['firstName'];
   $user['lastName'] = $_REQUEST['lastName'];
