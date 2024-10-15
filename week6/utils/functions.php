@@ -1,10 +1,4 @@
 <?php
-class DatabaseConnection {
-  private $host;
-  private $database;
-}
-
-const ACTIVE_USER = 1;
 
 
 /**
@@ -28,9 +22,11 @@ function saveUser($user): bool{
   $firstName = $user['firstName'];
   $lastName = $user['lastName'];
   $username = $user['email'];
+  $profilePic = $user['profile_picture'];
   $password = md5($user['password']);
 
-  $sql = "INSERT INTO users (name, lastname, username, password) VALUES('$firstName', '$lastName', '$username','$password')";
+  $sql = "INSERT INTO users (name, lastname, username, password, profile_picture)
+          VALUES('$firstName', '$lastName', '$username','$password','$profilePic')";
 
   try {
     $conn = getConnection();
@@ -60,4 +56,41 @@ function authenticate($username, $password): bool|array|null{
   $results = $result->fetch_array();
   $conn->close();
   return $results;
+}
+
+/**
+ * Inserts a new file to the database
+ *
+ * @user An associative array with the student information
+ */
+function saveProfilePic($filePath) {
+  $conn = getConnection();
+  $sql = "INSERT INTO files( `filepath`) VALUES ('$filePath')";
+
+  $conn->query($sql);
+
+
+  if ($conn->connect_errno) {
+    $conn->close();
+    return false;
+  }
+  $conn->close();
+  return true;
+}
+
+
+/**
+ * Get all files
+ */
+function getFiles(){
+  $conn = getConnection();
+  $sql = "SELECT * FROM files";
+  $result = $conn->query($sql);
+
+  if ($conn->connect_errno) {
+    $conn->close();
+    return [];
+  }
+  $conn->close();
+  return $result;
 }

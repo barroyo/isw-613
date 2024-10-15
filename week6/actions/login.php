@@ -1,6 +1,5 @@
 <?php
-  require('utils/functions.php');
-
+  require('../utils/functions.php');
 
   if($_POST) {
     $username = $_REQUEST['username'];
@@ -11,14 +10,12 @@
     if($user) {
       session_start();
       $_SESSION['user'] = $user;
-
-      //sendScheduleEmail($user['email-address'], "Bievenido");
-
-      header('Location: dashboard.php');
+      header('Location: /users.php');
     } else {
-      header('Location: index.php?status=login');
+      header('Location: /index.php?error=login');
     }
   }
+  require('../utils/functions.php');
 
 
 

@@ -1,7 +1,7 @@
 <?php
-<<<<<<< Updated upstream
-  include('utils/functions.php');
+  include_once('utils/functions.php');
   $error_msg = isset($_GET['error']) ? $_GET['error'] : '';
+  $provinces  = getProvinces()
 ?>
 <?php require('inc/header.php')?>
   <div class="container-fluid">
@@ -26,6 +26,3 @@
     </form>
   </div>
 <?php require('inc/footer.php');
-=======
-header('Location: /login.php');
->>>>>>> Stashed changes
