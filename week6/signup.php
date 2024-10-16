@@ -1,10 +1,5 @@
 <?php
   include('utils/functions.php');
-  session_start();
-  if ($_SESSION && $_SESSION['user']){
-    //user already logged in
-    header('Location: /dashboard.php');
-  }
 
   $provinces = getProvinces();
   $error_msg = isset($_GET['error']) ? $_GET['error'] : '';
@@ -47,7 +42,7 @@
         <input id="password" class="form-control" type="password" name="password">
       </div>
       <div class="form-group">
-        <label class="sr-only" for="">Profile Picture</label>
+        <label for="profilePic">Profile Picture</label>
         <input type="file" class="form-control" name="profilePic" id="profilePic" accept="image/png, image/jpeg" multiple="true">
       </div>
       <button type="submit" class="btn btn-primary"> Sign up </button>

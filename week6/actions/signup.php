@@ -1,5 +1,6 @@
 <?php
 require '../utils/functions.php';
+$uploads_folder = $_SERVER["DOCUMENT_ROOT"]."/uploads/";
 
 if($_POST && isset($_REQUEST['firstName'])) {
   //get each field and insert to the database
@@ -11,11 +12,11 @@ if($_POST && isset($_REQUEST['firstName'])) {
 
 
   $file_tmp = $_FILES["profilePic"]["tmp_name"];
-  $target_dir = dir(__FILE__). "../uploads/";
-  $target_file = $target_dir . basename($_FILES["profilePic"]["name"]);
+  $file_name = basename($_FILES["profilePic"]["name"]);
+  $target_file = $uploads_folder . $file_name;
   move_uploaded_file($file_tmp,$target_file);
 
-  $user['profile_picture'] = $target_file;
+  $user['profile_picture'] = $file_name;
 
   if (saveUser($user)) {
     header( "Location: /",);

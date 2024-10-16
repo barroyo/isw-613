@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('utils/functions.php');
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
   ?>
@@ -30,6 +31,7 @@ $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
       <a href="/users.php" class="nav-link">Users</a>
     </li>
     <li>
-      Hola <?php echo $user['name']; ?>
+      <?php echo $user['name'] ?? ''; ?>
+      <img width="40" src="<?php echo "/uploads/".$user['profile_picture'] ?? ''?>">
     </li>
   </ul>
