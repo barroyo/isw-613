@@ -4,7 +4,7 @@
     <p class="lead">This is the signup process</p>
     <hr class="my-4">
   </div>
-  <form method="post" action="actions/signup.php" enctype="multipart/form-data">
+  <form method="post" action="user/register" enctype="multipart/form-data">
     <div class="error">
       <?php echo $error_msg; ?>
     </div>
@@ -20,8 +20,8 @@
       <label for="province">Provincia</label>
       <select id="province" class="form-control" name="province">
         <?php
-        foreach($provinces as $province) {
-          echo "<option value=\"$province->id\">$province->name</option>";
+        foreach ($provinces as $province) {
+          echo "<option value=\"{$province['id']}\">{$province['name']}</option>";
         }
         ?>
       </select>
