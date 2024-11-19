@@ -13,17 +13,17 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" id="navId">
     <li class="nav-item">
-      <a href="/signup.php" class="nav-link active">Signup</a>
+      <a href="<?php echo site_url('/signup');?>" class="nav-link active">Signup</a>
     </li>
     <li class="nav-item">
       <a href="/" class="nav-link active">Login</a>
     </li>
     <li class="nav-item">
-      <a href="/actions/logout.php" class="nav-link active">Logout</a>
+      <a href="" class="nav-link active">Logout</a>
     </li>
 
     <li class="nav-item">
-      <a href="/users.php" class="nav-link">Users</a>
+      <a href="" class="nav-link">Users</a>
     </li>
     <li>
       <?php if (isset($user)) : ?>
