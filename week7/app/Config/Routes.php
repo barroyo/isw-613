@@ -8,7 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/signup', 'User::signup');
 $routes->get('/species', 'Species::index');
-$routes->get('/species/(:num)', 'Species::show');
 $routes->post('user/register', 'User::create');
 
 

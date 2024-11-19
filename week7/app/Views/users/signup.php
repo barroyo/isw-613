@@ -4,7 +4,7 @@
     <p class="lead">This is the signup process</p>
     <hr class="my-4">
   </div>
-  <form method="post" action="user/register" enctype="multipart/form-data">
+  <form method="post" action="<?php echo site_url('user/register')?>" enctype="multipart/form-data">
     <div class="error">
       <?php echo $error_msg; ?>
     </div>
