@@ -33,10 +33,24 @@ class User extends BaseController
     }
 
     public function create() {
-      $data = ['name' => $this->request->getPost('username'), 'lastname'=> 'User',
-        'username'    => 'admin',
-        'password' => password_hash('123', PASSWORD_BCRYPT), 'role' => 'admin'];
+      $data = [
+        'name' => $this->request->getPostGet('firstName'),
+        'lastname'=> $this->request->getPostGet('lastName'),
+        'username'    => $this->request->getPostGet('email'),
+        'password' => password_hash($this->request->getPostGet('password'), PASSWORD_BCRYPT),
+        'role' => 'admin'
+      ];
 
       $this->userModel->insert($data);
+      return redirect()->to('/');
+    }
+
+    public function validateEmail($email) {
+      $response = $this->userModel->where('username',$email)->first();
+      if($response) {
+        echo "{inuse: true}";
+      } else {
+        echo "{inuse: false}";
+      }
     }
 }

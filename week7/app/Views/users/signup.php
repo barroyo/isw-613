@@ -29,6 +29,7 @@
     <div class="form-group">
       <label for="email">Email Address</label>
       <input id="email" class="form-control" type="text" name="email">
+      <span id="error_email" class="error"></span>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -41,3 +42,20 @@
     <button type="submit" class="btn btn-primary"> Sign up </button>
   </form>
 </div>
+<script>
+  function validateEmail(){
+    const email = document.getElementById('email').value;
+    const xhttp = new XMLHttpRequest(); //creates the XMLHttpRequest object
+    xhttp.onreadystatechange = function() { //function called when request is completed
+      // do whatever you want with the response received from the server
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("error_email").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/user/validate/"+encodeURI(email), true); //define where should the request be made to
+    xhttp.send(); // execute the call
+  }
+
+  const emailInput = document.getElementById('email');
+  emailInput.addEventListener('keyup', validateEmail);
+</script>
