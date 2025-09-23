@@ -4,7 +4,7 @@
     <p class="lead">This is the signup process</p>
     <hr class="my-4">
   </div>
-  <form method="post" action="<?php echo site_url('user/register')?>" enctype="multipart/form-data">
+  <form method="post" action="<?php echo site_url('user/register') ?>" enctype="multipart/form-data">
     <div class="error">
       <?php echo $error_msg; ?>
     </div>
@@ -43,19 +43,37 @@
   </form>
 </div>
 <script>
-  function validateEmail(){
+  function validateEmailAjax() {
     const email = document.getElementById('email').value;
     const xhttp = new XMLHttpRequest(); //creates the XMLHttpRequest object
     xhttp.onreadystatechange = function() { //function called when request is completed
       // do whatever you want with the response received from the server
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("error_email").innerHTML = this.responseText;
+        response = JSON.parse(this.responseText);
+        document.getElementById("error_email").innerHTML = response.inuse ? "Email in use" : "";
       }
     };
-    xhttp.open("GET", "/user/validate/"+encodeURI(email), true); //define where should the request be made to
+    xhttp.open("GET", "/user/validate/" + encodeURI(email), true); //define where should the request be made to
     xhttp.send(); // execute the call
   }
 
+  async function  validateEmailFetch() {
+    const email = document.getElementById('email').value;
+    const response = await fetch("/user/validate/" + encodeURI(email)); // execute the call to the server side
+    console.log("response", response.json());
+      // .then(response => { //function called when request is completed
+      //   // do whatever you want with the response received from the server
+      //   if (!response.ok) {
+      //     throw new Error("There was an error");
+      //   }
+      //   console.log('Response', response.json());
+      //   //document.getElementById("error_email").innerHTML = response.inuse ? "Email in use" : "";
+      // })
+      // .catch(error => {
+      //   console.error("Error:", error);
+      // });//function called when any error
+  }
+
   const emailInput = document.getElementById('email');
-  emailInput.addEventListener('keyup', validateEmail);
+  emailInput.addEventListener('keyup', validateEmailFetch);
 </script>

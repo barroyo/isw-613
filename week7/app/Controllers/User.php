@@ -46,11 +46,11 @@ class User extends BaseController
     }
 
     public function validateEmail($email) {
-      $response = $this->userModel->where('username',$email)->first();
+      $response = $this->userModel->where('username', $email)->first();
       if($response) {
-        echo "{inuse: true}";
+        echo json_encode(["inuse" => true]);
       } else {
-        echo "{inuse: false}";
+        echo json_encode(["inuse" => false]);
       }
     }
 }
