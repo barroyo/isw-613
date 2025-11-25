@@ -9,8 +9,12 @@ class User extends BaseController
     public function index()
     {
         $model = new UserModel();
+        $data['title'] = "User";
         $data['users'] = $model->findAll();
-        return view('users/index', $data);
+        return view('common/head', $data)
+            . view('common/nav')
+            . view('users/index', $data)
+            . view('common/footer'); 
     }
 
     public function create()

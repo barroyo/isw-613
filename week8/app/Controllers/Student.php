@@ -9,13 +9,29 @@ class Student extends BaseController
     public function index()
     {
         $model = new StudentModel();
+        $data['title'] = "Students List";
         $data['students'] = $model->findAll();
-        return view('students/index', $data);
+        return view('common/head', $data)
+            . view('common/nav')
+            . view('students/index', $data)
+            . view('common/footer'); 
+    }
+
+    public function validateEmail($email) {
+        if($email == 'bladimir.ab@gmail.com') {
+            echo "Is Valid";
+        } else {
+            echo "Is Not Valid";
+        }
     }
 
     public function create()
     {
-        return view('students/create');
+        $data['title'] = "Add new Student";
+        return view('common/head', $data)
+            . view('common/nav')
+            . view('students/create')
+            . view('common/footer'); 
     }
 
     public function store()
@@ -36,6 +52,13 @@ class Student extends BaseController
         $model = new StudentModel();
         $data['user'] = $model->find($id);
         return view('users/edit', $data);
+    }
+
+    public function show($id)
+    {
+        $model = new StudentModel();
+        $data['student'] = $model->find($id);
+        return view('students/show', $data);
     }
 
     public function update($id)

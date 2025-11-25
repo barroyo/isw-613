@@ -9,9 +9,11 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Student::index');
 $routes->get('students', 'Student::index');
 $routes->get('students/create', 'Student::create');
+$routes->get('students/validate/(:segment)', 'Student::validateEmail/$1');
 $routes->post('students/store', 'Student::store');
+$routes->get('students/show/(:num)', 'Student::show/$1');
 
-// $routes->get('users', 'Users::index');
+$routes->get('users', 'User::index');
 // $routes->get('users/create', 'Users::create');
 // $routes->post('users/store', 'Users::store');
 // $routes->get('users/edit/(:num)', 'Users::edit/$1');
