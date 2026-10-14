@@ -1,0 +1,20 @@
+[
+    {
+        "name": "<img src=x onerror=\"alert('stored: '+document.cookie)\">",
+        "rating": 5,
+        "body": "Prob",
+        "date": "2026-10-14"
+    },
+    {
+        "name": "Dev C.",
+        "rating": 5,
+        "body": "Best headphones I have owned. Bass is clean.",
+        "date": "2026-10-02"
+    },
+    {
+        "name": "Marta R.",
+        "rating": 4,
+        "body": "Great battery life, comfy on long calls.",
+        "date": "2026-09-28"
+    }
+]
